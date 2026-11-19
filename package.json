@@ -1,0 +1,17 @@
+{
+  "name": "y-check",
+  "version": "1.0.0",
+  "description": "Y-Check – Dừng, Soi, Hỏi trước khi chia sẻ tin sức khỏe",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch --env-file=.env server.js"
+  },
+  "engines": { "node": ">=20.6" },
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.60.0",
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Y-Check — Dừng, Soi, Hỏi trước khi chia sẻ thông tin sức khỏe</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- Thanh điều hướng cố định + Nút gạt Chữ to – Dễ đọc -->
+<nav class="topbar" aria-label="Điều hướng chính">
+  <div class="topbar-inner">
+    <a class="logo" href="#">
+      <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>Y-Check</span>
+    </a>
+    <ul>
+      <li><a href="#soi">Soi tin</a></li>
+      <li><a href="#quytac">3 bước</a></li>
+      <li><a href="#tindon">Tin đồn</a></li>
+      <li><a href="#hopphan">Video &amp; Thẻ</a></li>
+      <li><a href="#luyentap">Luyện tập</a></li>
+      <li><a href="#antoan">An toàn</a></li>
+      <li><a href="#hoi">Hỏi chuyên gia</a></li>
+    </ul>
+    <button id="bigBtn" class="big-switch" type="button" role="switch" aria-checked="false" title="Tăng cỡ chữ và độ tương phản cho người lớn tuổi">
+      <span class="sw-track" aria-hidden="true"><span class="sw-thumb"></span></span>
+      <span class="sw-label">Chữ to · Dễ đọc</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Sân khấu 3D Studio + Thử soi nhanh trong 10 giây -->
+<header class="stage" id="stage">
+  <div class="copy">
+    <div class="s hero">
+      <p class="eyebrow"><span class="mono">30S HEALTH LITERACY</span> · Dành cho sinh viên &amp; gia đình</p>
+      <h1>Thấy tin sức khỏe lạ trên mạng? Kiểm tra trước khi chia sẻ.</h1>
+      <p class="traffic"><b class="r">Dừng.</b> <b class="a">Soi.</b> <b class="g">Hỏi.</b></p>
+      <p class="lead">Bốn câu hỏi cốt lõi trong ba mươi giây — giúp sinh viên tự kiểm chứng tin đồn và hướng dẫn ông bà, cha mẹ trên Zalo, Facebook.</p>
+
+      <div class="hero-quick">
+        <div class="hq-head">
+          <span class="mono hq-tag">DÙNG THỬ 10 GIÂY</span>
+          <span class="hq-title">Chọn nhanh một tin đồn mẫu để xem kết quả đèn tín hiệu:</span>
+        </div>
+        <div class="sample-chips">
+          <button type="button" class="chip chip-r" data-sample="lemon"><span class="dot r" aria-hidden="true"></span>Nước chanh muối chữa cảm</button>
+          <button type="button" class="chip chip-a" data-sample="detox"><span class="dot a" aria-hidden="true"></span>Detox thải độc 3 ngày</button>
+          <button type="button" class="chip chip-g" data-sample="who"><span class="dot g" aria-hidden="true"></span>Rửa tay xà phòng (WHO)</button>
+        </div>
+        <div class="hq-actions">
+          <a class="cta" href="#soi">Mở công cụ Soi tin
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <a class="cta-ghost" href="#the4cau">Tải Thẻ 4 câu hỏi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Khung 3D tương tác + HUD chuyển trạng thái -->
+  <div id="scene" role="img" aria-label="Mô hình 3D đèn tín hiệu công nghiệp Dừng, Soi, Hỏi và kính lúp quang học">
+    <div class="scene-meta mono">OPTICAL VERIFIER · KÉO ĐỂ XOAY 3D</div>
+    <div class="scene-hud" role="group" aria-label="Điều khiển trạng thái đèn 3D">
+      <button type="button" data-scene-mode="auto" aria-pressed="true">Tự động</button>
+      <button type="button" data-scene-mode="r" aria-pressed="false"><span class="dot r"></span>Dừng</button>
+      <button type="button" data-scene-mode="a" aria-pressed="false"><span class="dot a"></span>Soi</button>
+      <button type="button" data-scene-mode="g" aria-pressed="false"><span class="dot g"></span>Hỏi</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 01. CÔNG CỤ SOI TIN NGAY ĐẦU TRANG -->
+<section id="soi">
+  <div class="wrap">
+    <div class="tool">
+      <div class="tool-top">
+        <div>
+          <span class="sec-kicker mono">01 / CÔNG CỤ KIỂM CHỨNG 30 GIÂY</span>
+          <h2>Soi tin ngay</h2>
+          <p class="sub">Dán tin nhắn từ Zalo hoặc Facebook vào ô dưới đây để tự động quét từ khóa cảnh báo, sau đó trả lời 4 câu hỏi.</p>
+        </div>
+        <div class="tool-meter mono" aria-hidden="true">
+          <span class="dot r"></span><span class="dot a"></span><span class="dot g"></span>
+          <span>SIFT · CRAAP</span>
+        </div>
+      </div>
+
+      <div class="sample-bar">
+        <span class="sample-lbl mono">TIN MẪU THỬ NHANH</span>
+        <div class="sample-chips">
+          <button type="button" class="chip chip-r" data-sample="lemon"><span class="dot r" aria-hidden="true"></span>Nước chanh muối chữa cảm</button>
+          <button type="button" class="chip chip-a" data-sample="detox"><span class="dot a" aria-hidden="true"></span>Detox thải độc 3 ngày</button>
+          <button type="button" class="chip chip-g" data-sample="who"><span class="dot g" aria-hidden="true"></span>Rửa tay xà phòng (WHO)</button>
+        </div>
+      </div>
+
+      <label class="t" for="claim">Bước 1 — Dán nội dung tin cần kiểm chứng <span class="muted-inline">(hệ thống tự động bắt từ khóa cảnh báo)</span></label>
+      <textarea id="claim" placeholder="Ví dụ: Cảnh báo khẩn! Uống nước chanh muối mỗi sáng sẽ chữa khỏi hoàn toàn cảm cúm, chia sẻ gấp cho người thân và mua ngay combo thảo dược..."></textarea>
+
+      <!-- Khung tự động bắt & tô đỏ từ khóa cảnh báo (Bước Dừng) -->
+      <div id="scanBox" class="scan-box" hidden aria-live="polite">
+        <div class="scan-head">
+          <strong id="scanTitle">Tự động nhận diện dấu hiệu ở bước Dừng</strong>
+          <span id="scanCount" class="scan-badge mono">0 từ khóa</span>
+        </div>
+        <div id="scanPreview" class="scan-preview"></div>
+        <p id="scanHint" class="scan-hint"></p>
+      </div>
+
+      <fieldset class="flags">
+        <legend>Dừng — Tin này có dấu hiệu cảnh báo nào dưới đây không?</legend>
+        <label><input type="checkbox" name="flag" data-flag="urgent"><span>Giật gân, gây sợ hãi hoặc thúc giục chia sẻ gấp</span></label>
+        <label><input type="checkbox" name="flag" data-flag="cure"><span>Hứa “chữa khỏi hoàn toàn”, “thải độc”, “không cần đi khám”</span></label>
+        <label><input type="checkbox" name="flag" data-flag="sell"><span>Kèm kêu gọi mua sản phẩm, đặt hàng hoặc để lại số điện thoại</span></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Soi — Trả lời 4 câu hỏi kiểm chứng</legend>
+        <div class="q">
+          <p><span class="q-num mono">01</span><b>Ai nói?</b><small>Có chuyên môn rõ ràng, không bán sản phẩm liên quan?</small></p>
+          <div class="opts">
+            <label><input type="radio" name="q1" value="2"><span>Có</span></label>
+            <label><input type="radio" name="q1" value="1"><span>Không rõ</span></label>
+            <label><input type="radio" name="q1" value="0"><span>Không</span></label>
+          </div>
+        </div>
+        <div class="q">
+          <p><span class="q-num mono">02</span><b>Bằng chứng nào?</b><small>Có dẫn nghiên cứu khoa học hoặc cơ quan y tế cụ thể?</small></p>
+          <div class="opts">
+            <label><input type="radio" name="q2" value="2"><span>Có</span></label>
+            <label><input type="radio" name="q2" value="1"><span>Không rõ</span></label>
+            <label><input type="radio" name="q2" value="0"><span>Không</span></label>
+          </div>
+        </div>
+        <div class="q">
+          <p><span class="q-num mono">03</span><b>Khi nào đăng?</b><small>Có ngày tháng rõ ràng và còn phù hợp hiện nay?</small></p>
+          <div class="opts">
+            <label><input type="radio" name="q3" value="2"><span>Có</span></label>
+            <label><input type="radio" name="q3" value="1"><span>Không rõ</span></label>
+            <label><input type="radio" name="q3" value="0"><span>Không</span></label>
+          </div>
+        </div>
+        <div class="q">
+          <p><span class="q-num mono">04</span><b>Nơi khác có nói vậy không?</b><small>Bộ Y tế, WHO, bệnh viện lớn có thông tin tương tự?</small></p>
+          <div class="opts">
+            <label><input type="radio" name="q4" value="2"><span>Có</span></label>
+            <label><input type="radio" name="q4" value="1"><span>Chưa kiểm tra</span></label>
+            <label><input type="radio" name="q4" value="0"><span>Không</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="tool-actions">
+        <button id="go" type="button">Xem kết quả đèn tín hiệu</button>
+        <button id="reset" class="ghost" type="button">Làm lại</button>
+      </div>
+      <div id="result" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02. QUY TẮC 3 BƯỚC -->
+<section class="cols" id="quytac">
+  <div class="wrap">
+    <div class="col-head">
+      <span class="sec-kicker mono">02 / PHƯƠNG PHÁP</span>
+      <h2 class="h">Quy tắc 3 bước: Dừng – Soi – Hỏi</h2>
+      <p class="intro">Xây dựng trên nguyên tắc đọc ngang (lateral reading), khung kiểm chứng SIFT/CRAAP và khuyến nghị của WHO về nâng cao hiểu biết sức khỏe.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card sr">
+        <span class="step-tag mono">BƯỚC 01 · ĐÈN ĐỎ</span>
+        <h3>Dừng.</h3>
+        <p><strong>Chưa vội tin, chưa vội chia sẻ.</strong></p>
+        <ul>
+          <li>Nhận biết dấu hiệu giật gân, gây sợ hãi, giục chia sẻ gấp.</li>
+          <li>Cẩn trọng với lời hứa “chữa khỏi hoàn toàn” hoặc kèm bán hàng.</li>
+        </ul>
+      </div>
+      <div class="step-card sa">
+        <span class="step-tag mono">BƯỚC 02 · ĐÈN VÀNG</span>
+        <h3>Soi.</h3>
+        <p><strong>Kiểm tra nhanh bằng 4 câu hỏi.</strong></p>
+        <ul>
+          <li>Ai nói? Bằng chứng nào? Khi nào đăng? Nơi khác có nói vậy không?</li>
+          <li>Mở thêm một tab đối chiếu Bộ Y tế, WHO hoặc bệnh viện lớn.</li>
+        </ul>
+      </div>
+      <div class="step-card sg">
+        <span class="step-tag mono">BƯỚC 03 · ĐÈN XANH</span>
+        <h3>Hỏi.</h3>
+        <p><strong>Hỏi nguồn đáng tin trước khi làm theo.</strong></p>
+        <ul>
+          <li>Gửi tin nghi ngờ vào kênh Hỏi – Đáp hoặc hỏi bác sĩ, dược sĩ.</li>
+          <li>Triệu chứng cá nhân: đến cơ sở y tế. Dấu hiệu nguy hiểm: gọi 115.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03. TIN ĐỒN THƯỜNG GẶP CÓ TEM KIỂM DUYỆT & NÚT BÁO CÁO SAI SÓT -->
+<section class="cols" id="tindon">
+  <div class="wrap">
+    <div class="col-head">
+      <span class="sec-kicker mono">03 / HỒ SƠ KIỂM CHỨNG</span>
+      <h2 class="h">Tin đồn thường gặp đã kiểm chứng</h2>
+      <p class="intro">Mỗi hồ sơ đều gắn Tem kiểm duyệt minh bạch người biên soạn, nguồn đối chiếu và nút Báo cáo sai sót với cam kết xử lý trong 24 giờ.</p>
+    </div>
+
+    <div class="details-stack">
+      <details open>
+        <summary><span><span class="verdict mono">CẦN THẬN TRỌNG</span>“Detox” giúp thải sạch độc tố cơ thể</span></summary>
+        <div>
+          <div class="audit-stamp" aria-label="Tem kiểm duyệt chuyên môn">
+            <div class="audit-title mono">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+              TEM KIỂM DUYỆT CHUYÊN MÔN · HS-01
+            </div>
+            <div class="audit-grid">
+              <div><b>Người biên soạn:</b> SV khối ngành Sức khỏe (Nhóm Y-Check)</div>
+              <div><b>Người duyệt:</b> Thầy thuốc trẻ / Giảng viên Y Dược <em>(Bản mẫu – chờ duyệt chính thức)</em></div>
+              <div><b>Ngày cập nhật:</b> <span class="mono">19/11/2026</span></div>
+              <div><b>Nguồn đối chiếu:</b> <a href="https://moh.gov.vn" target="_blank" rel="noopener">Bộ Y tế</a> · <a href="https://www.who.int" target="_blank" rel="noopener">WHO</a> · NCCIH</div>
+            </div>
+          </div>
+          <p><strong>Soi:</strong> Cơ thể đã có gan, thận, phổi và da làm nhiệm vụ đào thải tự nhiên. Chưa có bằng chứng khoa học thuyết phục cho thấy trà, nước ép hay sản phẩm “detox” giúp thải độc tốt hơn.</p>
+          <p><strong>Rủi ro:</strong> Nhịn ăn kéo dài hoặc dùng sản phẩm không rõ nguồn gốc có thể gây tụt đường huyết, rối loạn điện giải hoặc tổn thương gan thận. Muốn khỏe: ăn đa dạng, uống đủ nước, ngủ đủ và vận động đều.</p>
+          <div class="article-foot">
+            <button type="button" class="report-btn" data-article="“Detox” giúp thải sạch độc tố cơ thể">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+              Báo cáo sai sót (Xử lý trong 24h)
+            </button>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary><span><span class="verdict mono">CẦN THẬN TRỌNG</span>Nước chanh muối chữa khỏi cảm cúm</span></summary>
+        <div>
+          <div class="audit-stamp" aria-label="Tem kiểm duyệt chuyên môn">
+            <div class="audit-title mono">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+              TEM KIỂM DUYỆT CHUYÊN MÔN · HS-02
+            </div>
+            <div class="audit-grid">
+              <div><b>Người biên soạn:</b> SV khối ngành Sức khỏe (Nhóm Y-Check)</div>
+              <div><b>Người duyệt:</b> Thầy thuốc trẻ / Giảng viên Y Dược <em>(Bản mẫu – chờ duyệt chính thức)</em></div>
+              <div><b>Ngày cập nhật:</b> <span class="mono">19/11/2026</span></div>
+              <div><b>Nguồn đối chiếu:</b> <a href="https://moh.gov.vn" target="_blank" rel="noopener">Bộ Y tế</a> · <a href="https://www.who.int" target="_blank" rel="noopener">WHO</a></div>
+            </div>
+          </div>
+          <p><strong>Soi:</strong> Không có bằng chứng cho thấy nước chanh muối là thuốc chữa khỏi cảm cúm. Uống đủ nước ấm giúp dễ chịu cổ họng, nhưng chăm sóc cơ bản vẫn là nghỉ ngơi, bù nước và theo dõi triệu chứng.</p>
+          <p><strong>Hỏi:</strong> Sốt cao kéo dài, khó thở, đau ngực, trẻ nhỏ hoặc người cao tuổi sốt thì cần đến cơ sở y tế khám sớm.</p>
+          <div class="article-foot">
+            <button type="button" class="report-btn" data-article="Nước chanh muối chữa khỏi cảm cúm">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+              Báo cáo sai sót (Xử lý trong 24h)
+            </button>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary><span><span class="verdict mono">CẦN THẬN TRỌNG</span>Thực phẩm chức năng có thể thay thế thuốc</span></summary>
+        <div>
+          <div class="audit-stamp" aria-label="Tem kiểm duyệt chuyên môn">
+            <div class="audit-title mono">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+              TEM KIỂM DUYỆT CHUYÊN MÔN · HS-03
+            </div>
+            <div class="audit-grid">
+              <div><b>Người biên soạn:</b> SV khối ngành Sức khỏe (Nhóm Y-Check)</div>
+              <div><b>Người duyệt:</b> Thầy thuốc trẻ / Giảng viên Y Dược <em>(Bản mẫu – chờ duyệt chính thức)</em></div>
+              <div><b>Ngày cập nhật:</b> <span class="mono">19/11/2026</span></div>
+              <div><b>Nguồn đối chiếu:</b> <a href="https://moh.gov.vn" target="_blank" rel="noopener">Bộ Y tế (Cục ATTP)</a> · <a href="https://www.who.int" target="_blank" rel="noopener">WHO</a></div>
+            </div>
+          </div>
+          <p><strong>Soi:</strong> Thực phẩm bảo vệ sức khỏe không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh. Cần đọc kỹ nhãn, thành phần và kiểm tra số đăng ký lưu hành.</p>
+          <p><strong>Hỏi:</strong> Người đang điều trị bệnh mạn tính (tiểu đường, tăng huyết áp...) tuyệt đối không tự ý ngưng thuốc; hãy hỏi bác sĩ trước khi dùng thêm bất kỳ sản phẩm nào.</p>
+          <div class="article-foot">
+            <button type="button" class="report-btn" data-article="Thực phẩm chức năng có thể thay thế thuốc">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+              Báo cáo sai sót (Xử lý trong 24h)
+            </button>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 04. HỆ SINH THÁI 4 HỢP PHẦN + VIDEO 60 GIÂY & THẺ 4 CÂU HỎI -->
+<section class="cols" id="hopphan">
+  <div class="wrap">
+    <div class="col-head">
+      <span class="sec-kicker mono">04 / HỆ SINH THÁI</span>
+      <h2 class="h">Bốn hợp phần triển khai</h2>
+      <p class="intro">Website là sản phẩm lõi, kết nối trực tiếp với chuỗi video “Y-Check 60 giây”, mạng lưới Đại sứ và Thẻ 4 câu hỏi.</p>
+    </div>
+
+    <div class="eco-wrap">
+      <div class="grid4">
+        <div class="card"><span class="card-idx mono">01</span><h3>Website Y-Check</h3><p>Công cụ Soi tin 30 giây, tự bắt từ khóa cảnh báo, hồ sơ tin đồn có tem kiểm duyệt và kênh Hỏi – Đáp.</p></div>
+        <div class="card"><span class="card-idx mono">02</span><h3>Video “Y-Check 60 giây”</h3><p>12 tập ngắn kiểm chứng tin đồn phổ biến, đăng TikTok, Facebook, YouTube Shorts dẫn về website.</p></div>
+        <div class="card"><span class="card-idx mono">03</span><h3>Đại sứ Y-Check</h3><p>Đội 8–10 sinh viên/trường (ít nhất 3 SV khối sức khỏe), workshop 90 phút và chiến dịch “Về nhà dạy ông bà”.</p></div>
+        <div class="card"><span class="card-idx mono">04</span><h3>Thẻ 4 câu hỏi</h3><p>Bản in và bản điện tử tải ngay tại đây để lưu trong máy hoặc gửi nhóm Zalo gia đình.</p></div>
+      </div>
+
+      <!-- Khối Video mẫu Y-Check 60 giây -->
+      <div class="eco-block" id="video60s">
+        <span class="sec-kicker mono">VIDEO MẪU · KỊCH BẢN TƯƠNG TÁC</span>
+        <h3>Chuỗi Video “Y-Check 60 giây”</h3>
+        <p class="eco-sub">Bấm nút phát để xem trước nhịp nội dung 60 giây (tự động chuyển 4 cảnh: Dừng → Soi → Hỏi → Kết luận). Sau khi quay dựng chỉ cần gắn link nhúng TikTok hoặc YouTube Shorts.</p>
+        <div class="video-grid">
+          <div class="vid-card" data-vid="ep1">
+            <div class="vid-screen">
+              <div class="vid-top"><span class="vid-pill mono">TẬP 01 · 60S</span><span class="vid-timer mono">00:00 / 01:00</span></div>
+              <div class="vid-body">
+                <div class="vid-step-badge mono">SẴN SÀNG PHÁT</div>
+                <h4 class="vid-headline">Nước chanh muối có chữa khỏi cảm cúm?</h4>
+                <p class="vid-caption">Bấm “Phát thử kịch bản” để xem minh họa luồng Dừng – Soi – Hỏi.</p>
+              </div>
+              <div class="vid-prog"><span class="vid-prog-bar"></span></div>
+            </div>
+            <div class="vid-controls">
+              <button type="button" class="vid-play">Phát thử kịch bản</button>
+              <button type="button" class="ghost vid-try" data-sample="lemon">Soi tin này ngay</button>
+            </div>
+          </div>
+
+          <div class="vid-card" data-vid="ep2">
+            <div class="vid-screen">
+              <div class="vid-top"><span class="vid-pill mono">TẬP 02 · 60S</span><span class="vid-timer mono">00:00 / 01:00</span></div>
+              <div class="vid-body">
+                <div class="vid-step-badge mono">SẴN SÀNG PHÁT</div>
+                <h4 class="vid-headline">Sự thật về trà “Detox thải sạch độc tố”</h4>
+                <p class="vid-caption">Bấm “Phát thử kịch bản” để xem cách bóc tách chiêu quảng cáo detox.</p>
+              </div>
+              <div class="vid-prog"><span class="vid-prog-bar"></span></div>
+            </div>
+            <div class="vid-controls">
+              <button type="button" class="vid-play">Phát thử kịch bản</button>
+              <button type="button" class="ghost vid-try" data-sample="detox">Soi tin này ngay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khối Thẻ 4 câu hỏi bản điện tử tải về -->
+      <div class="eco-block" id="the4cau">
+        <span class="sec-kicker mono">TÀI LIỆU MỞ · BẢN ĐIỆN TỬ &amp; BẢN IN</span>
+        <h3>Thẻ 4 câu hỏi Y-Check</h3>
+        <p class="eco-sub">Tải ảnh PNG sắc nét để gửi nhóm Zalo gia đình, hoặc bấm In / Lưu bản PDF để phát trong workshop sinh viên.</p>
+        <div class="pocket-card" id="printableCard">
+          <div class="pc-head">
+            <span class="pc-brand mono">Y-CHECK · THẺ BỎ TÚI 30 GIÂY</span>
+            <h4>Thấy tin sức khỏe lạ? Nhớ: <span class="r">Dừng</span> – <span class="a">Soi</span> – <span class="g">Hỏi</span></h4>
+          </div>
+          <div class="pc-body">
+            <p class="pc-step r">1. DỪNG — Chưa vội tin, chưa vội chia sẻ</p>
+            <p class="pc-txt">Cẩn thận nếu thấy: giật gân, giục chia sẻ gấp, hứa “chữa khỏi hoàn toàn”, hoặc kêu gọi mua hàng.</p>
+            <p class="pc-step a">2. SOI — Hỏi nhanh 4 câu</p>
+            <ol class="pc-list">
+              <li><b>Ai nói?</b> Có chuyên môn rõ ràng, có bán hàng không?</li>
+              <li><b>Bằng chứng nào?</b> Có dẫn nghiên cứu, cơ quan y tế?</li>
+              <li><b>Khi nào?</b> Có ngày đăng và còn cập nhật không?</li>
+              <li><b>Nơi khác có nói vậy không?</b> Đối chiếu Bộ Y tế, WHO, bệnh viện lớn.</li>
+            </ol>
+            <p class="pc-step g">3. HỎI — Hỏi đúng người có chuyên môn</p>
+            <p class="pc-txt">Bệnh của mình: đến cơ sở y tế. Có dấu hiệu nguy hiểm (khó thở, đau ngực, co giật...): gọi ngay <b>115</b>.</p>
+          </div>
+          <div class="pc-foot mono">Y-Check · Dự án “1.000 ý tưởng chăm sóc sức khỏe Việt” 2026 · Chỉ mang tính tham khảo.</div>
+        </div>
+        <div class="card-dl-actions">
+          <button type="button" id="dlCardPng">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Tải ảnh Thẻ 4 câu hỏi (PNG)
+          </button>
+          <button type="button" id="printCardPdf" class="ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            In / Lưu bản PDF
+          </button>
+          <span id="dlCardMsg" role="status" class="dl-msg"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05. SÁU THỦ THUẬT THAO TÚNG -->
+<section class="cols" id="thuthuat">
+  <div class="wrap">
+    <div class="col-head">
+      <span class="sec-kicker mono">05 / PREBUNKING</span>
+      <h2 class="h">Sáu thủ thuật thao túng thông tin</h2>
+      <p class="intro">Nguyên lý “tiêm chủng thông tin”: nhận diện trước các chiêu thức quen thuộc giúp bạn phản xạ nhanh hơn trước mọi tin giả mới.</p>
+    </div>
+    <div class="grid3">
+      <div class="card"><span class="card-idx mono">01</span><h3>Gây sợ hãi</h3><p><em>“Cảnh báo: thứ bạn ăn mỗi ngày đang âm thầm gây ung thư!”</em></p><p><strong>Cách soi:</strong> Cảm xúc mạnh khiến bạn không kịp kiểm tra. Hãy tìm nguồn và mức độ nguy cơ cụ thể.</p></div>
+      <div class="card"><span class="card-idx mono">02</span><h3>“Bác sĩ giấu bạn”</h3><p><em>“Điều bệnh viện không dám nói với bạn…”</em></p><p><strong>Cách soi:</strong> Kiểu thuyết âm mưu thường dẫn đến bán sản phẩm. Hãy hỏi: ai là người được lợi?</p></div>
+      <div class="card"><span class="card-idx mono">03</span><h3>Chuyên gia mơ hồ</h3><p><em>“Các nhà khoa học đã chứng minh…”</em></p><p><strong>Cách soi:</strong> Nhà khoa học nào, nghiên cứu nào, đăng ở đâu? Không dẫn nguồn là dấu hiệu cần Dừng.</p></div>
+      <div class="card"><span class="card-idx mono">04</span><h3>Lời chứng thực</h3><p><em>“Tôi đã khỏi sau 3 ngày dùng sản phẩm này!”</em></p><p><strong>Cách soi:</strong> Một trải nghiệm cá nhân chưa phải bằng chứng khoa học; bệnh có thể tự khỏi hoặc do cách điều trị khác.</p></div>
+      <div class="card"><span class="card-idx mono">05</span><h3>“Tự nhiên là an toàn”</h3><p><em>“100% thảo dược, không có tác dụng phụ.”</em></p><p><strong>Cách soi:</strong> Tự nhiên không đồng nghĩa an toàn; thảo dược vẫn có thể gây dị ứng hoặc tương tác với thuốc.</p></div>
+      <div class="card"><span class="card-idx mono">06</span><h3>Khan hiếm, giục gấp</h3><p><em>“Chỉ còn hôm nay, chia sẻ ngay cho 10 người!”</em></p><p><strong>Cách soi:</strong> Sự thúc giục làm bạn bỏ qua bước kiểm tra. Tin đúng không cần ép bạn chia sẻ gấp.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06. LUYỆN TẬP -->
+<section class="cols" id="luyentap">
+  <div class="wrap">
+    <div class="col-head">
+      <span class="sec-kicker mono">06 / THỰC HÀNH</span>
+      <h2 class="h">Tập soi tin</h2>
+      <p class="intro">Đọc từng tình huống mẫu và chọn đáp án. Các tin mẫu do tác giả biên soạn để luyện phản xạ, không phải bài đăng có thật.</p>
+    </div>
+    <div class="quiz-wrap">
+      <div class="tool"><div id="qzBox" aria-live="polite"></div></div>
+      <div class="share">
+        <span class="mono share-lbl">CHIA SẺ Y-CHECK</span>
+        <button type="button" id="shNative">Chia sẻ nhanh</button>
+        <a class="btn" id="shFb" target="_blank" rel="noopener">Facebook</a>
+        <button type="button" class="ghost" id="shCopy" style="margin-left:0">Sao chép liên kết</button>
+        <span id="shMsg" role="status"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07. LỘ TRÌNH TRIỂN KHAI -->
+<section class="cols" id="lotrinh">
+  <div class="wrap">
+    <div class="col-head">
+      <span class="sec-kicker mono">07 / LỘ TRÌNH</span>
+      <h2 class="h">Kế hoạch triển khai</h2>
+      <p class="intro">Hiện tại đã hoàn thiện website bản đầu. Các giai đoạn dưới đây là kế hoạch dự kiến, chưa phải kết quả đã đạt.</p>
+    </div>
+    <div class="grid4">
+      <div class="card"><span class="d mono">THÁNG 1–2 · DỰ KIẾN</span><h3>Chuẩn bị</h3><p>Hoàn thiện nội dung với chuyên gia, khảo sát đầu vào, hoàn thiện website và kịch bản video.</p></div>
+      <div class="card"><span class="d mono">THÁNG 3–5 · DỰ KIẾN</span><h3>Thí điểm</h3><p>Tập huấn 30 đại sứ sinh viên tại 3 trường, sản xuất 12 video, tổ chức workshop, theo dõi lượt dùng website.</p></div>
+      <div class="card"><span class="d mono">THÁNG 6 · DỰ KIẾN</span><h3>Đánh giá</h3><p>Khảo sát trước và sau can thiệp, phỏng vấn nhóm nhỏ, hiệu chỉnh nội dung và công cụ.</p></div>
+      <div class="card"><span class="d mono">TỪ THÁNG 7 · DỰ KIẾN</span><h3>Nhân rộng</h3><p>Đóng gói bộ tài liệu mở, phối hợp Hội Sinh viên, Đoàn trường và Hội Thầy thuốc trẻ địa phương.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08. AN TOÀN CHUYÊN MÔN -->
+<section class="cols" id="antoan">
+  <div class="wrap">
+    <div class="col-head">
+      <span class="sec-kicker mono">08 / AN TOÀN CHUYÊN MÔN</span>
+      <h2 class="h">Nguyên tắc &amp; Cam kết</h2>
+      <p class="intro">Y-Check là công cụ rèn kỹ năng chọn lọc thông tin, không phải nơi khám hay tư vấn điều trị bệnh.</p>
+    </div>
+    <div class="safety-wrap">
+      <div class="grid3">
+        <div class="card"><h3>Ai biên soạn</h3><p>Sinh viên khối ngành sức khỏe soạn nội dung kiểm chứng, sinh viên truyền thông và công nghệ hỗ trợ thiết kế, xây dựng website.</p></div>
+        <div class="card"><h3>Ai phê duyệt</h3><p>Quy trình dự kiến: thầy thuốc trẻ hoặc giảng viên y dược duyệt trước khi đăng. Bản thử nghiệm hiện tại là nội dung tham khảo, chưa qua duyệt chính thức.</p></div>
+        <div class="card"><h3>Nguồn tham chiếu</h3><p>Bộ Y tế, Tổ chức Y tế Thế giới (WHO), các hội chuyên khoa và hướng dẫn điều trị chính thức. Mỗi nội dung đều phải dẫn nguồn.</p></div>
+      </div>
+      <div class="card commit-card">
+        <h3>Những điều Y-Check cam kết</h3>
+        <ul>
+          <li>Không chẩn đoán bệnh, không kê đơn, không tư vấn liều thuốc.</li>
+          <li>Có triệu chứng hoặc vấn đề sức khỏe cá nhân: đến cơ sở y tế. Có dấu hiệu nguy hiểm: gọi cấp cứu 115.</li>
+          <li>Không thu thập dữ liệu sức khỏe nhạy cảm; nội dung bạn nhập vào công cụ Soi tin chỉ xử lý trực tiếp trên trình duyệt của bạn.</li>
+          <li>Phát hiện sai sót sẽ chỉnh sửa hoặc rút nội dung trong 24 giờ qua nút “Báo cáo sai sót” trên từng hồ sơ.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tacgia">
+  <div class="wrap">
+    <div class="about">
+      <span class="sec-kicker mono">TÁC GIẢ DỰ ÁN</span>
+      <h2 class="h">Giới thiệu tác giả</h2>
+      <div class="card">
+        <h3>Hoàng Phương Thảo</h3>
+        <p>Sinh viên ngành Kỹ thuật phần mềm, Trường Đại học Công nghệ Đồng Nai. Dự thi cá nhân tại cuộc thi “1.000 ý tưởng chăm sóc sức khỏe Việt” năm 2026.</p>
+        <p>Tôi làm Y-Check vì thông tin sức khỏe sai lan rất nhanh trên mạng xã hội, ngay trong nhóm bạn bè và gia đình. Tôi muốn có một cách đơn giản để mỗi sinh viên dừng lại, kiểm tra và hỏi đúng người trước khi chia sẻ.</p>
+        <p>Liên hệ: <a href="mailto:thao1.123lls@gmail.com">thao1.123lls@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="hoi">
+  <div class="wrap">
+    <span class="sec-kicker mono band-kicker">KÊNH HỎI – ĐÁP</span>
+    <h2 class="h">Hỏi chuyên gia</h2>
+    <p class="intro">Gặp một thông tin chưa chắc chắn? Gửi cho nhóm Y-Check, các bạn sinh viên y dược cùng thầy thuốc trẻ sẽ kiểm chứng và trả lời công khai.</p>
+    <p class="band-mail"><strong>Email tiếp nhận:</strong> <a href="mailto:thao1.123lls@gmail.com">thao1.123lls@gmail.com</a></p>
+    <p class="band-note">Y-Check không chẩn đoán, không kê đơn và không tư vấn liều thuốc.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap note">Y-Check là ý tưởng dự thi “1.000 ý tưởng chăm sóc sức khỏe Việt” 2026 (nhóm nội dung: Truyền thông, giáo dục sức khỏe). Công cụ Soi tin chỉ mang tính tham khảo để rèn kỹ năng chọn lọc thông tin, không thay thế tư vấn của nhân viên y tế. Tác giả: Hoàng Phương Thảo, Trường Đại học Công nghệ Đồng Nai.</div>
+</footer>
+
+<!-- Modal Báo cáo sai sót (Cam kết xử lý 24h) -->
+<div id="reportModal" class="modal-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="rpTitle">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="rpTitle">Báo cáo sai sót chuyên môn</h3>
+      <button type="button" id="rpClose" class="modal-x" aria-label="Đóng hộp thoại">×</button>
+    </div>
+    <p class="modal-sub">Nhóm Y-Check cam kết rà soát và chỉnh sửa hoặc rút nội dung trong vòng <b>24 giờ</b> nếu phát hiện sai sót.</p>
+    <form id="rpForm">
+      <label class="t" for="rpArticle">Hồ sơ đang phản ánh</label>
+      <input id="rpArticle" type="text" readonly>
+
+      <label class="t" for="rpReason">Loại góp ý</label>
+      <select id="rpReason">
+        <option value="Thông tin chưa cập nhật">Thông tin y khoa chưa cập nhật</option>
+        <option value="Thiếu hoặc sai nguồn đối chiếu">Thiếu hoặc sai nguồn đối chiếu</option>
+        <option value="Diễn đạt dễ gây hiểu nhầm">Diễn đạt dễ gây hiểu nhầm</option>
+        <option value="Góp ý khác">Góp ý chuyên môn khác</option>
+      </select>
+
+      <label class="t" for="rpDetail">Nội dung chi tiết (bắt buộc)</label>
+      <textarea id="rpDetail" required maxlength="500" placeholder="Ví dụ: Đề nghị bổ sung link khuyến cáo mới nhất của Bộ Y tế..."></textarea>
+
+      <label class="t" for="rpContact">Email hoặc SĐT liên hệ (không bắt buộc)</label>
+      <input id="rpContact" type="text" maxlength="120" placeholder="Để nhóm phản hồi sau khi cập nhật">
+
+      <div class="modal-actions">
+        <button type="submit" id="rpSubmit">Gửi báo cáo</button>
+        <button type="button" id="rpCancel" class="ghost">Hủy</button>
+      </div>
+      <div id="rpMsg" class="rp-msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<!-- Y-Check Bot -->
+<button id="cbFab" type="button" aria-expanded="false" aria-controls="cbPanel">
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <span>Hỏi Y-Check Bot</span>
+</button>
+<div id="cbPanel" role="dialog" aria-label="Trò chuyện với Y-Check Bot" hidden>
+  <div class="cbh"><b>Y-Check Bot</b><span>Trợ lý hỗ trợ bước Dừng – Soi – Hỏi</span></div>
+  <div id="cbLog" aria-live="polite"></div>
+  <div class="chips" id="cbChips">
+    <button type="button">Nước chanh muối có chữa được cảm không?</button>
+    <button type="button">Cách soi một tin sức khỏe trên mạng</button>
+    <button type="button">Detox có thải độc thật không?</button>
+  </div>
+  <div class="cbn">Trợ lý chỉ mang tính tham khảo, không chẩn đoán, không kê đơn. Có dấu hiệu nguy hiểm hãy gọi 115.</div>
+  <div class="cbf">
+    <input id="cbIn" type="text" maxlength="500" placeholder="Nhập câu hỏi hoặc dán tin cần soi" aria-label="Nhập câu hỏi">
+    <button id="cbSend" type="button">Gửi</button>
+  </div>
+</div>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="/js/main.js"></script>
+<script defer src="/js/scene.js"></script>
+<script defer src="/js/quiz.js"></script>
+<script defer src="/js/chatbot.js"></script>
+</body></html>
